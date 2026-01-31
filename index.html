@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Educational Documentation</title>
+  <style>
+    @font-face {
+      font-family: 'MerchantWide';
+      src: url('font/merchant-copy.wide.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'MerchantWide', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      border-bottom: 2px solid #333;
+      padding-bottom: 8px;
+      margin-top: 32px;
+    }
+
+    h2 {
+      font-family: 'MerchantWide', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 28px;
+    }
+
+    h3 {
+      font-family: 'MerchantWide', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      font-weight: 700;
+      font-family: 'MerchantWide', sans-serif;
+    }
+
+    strong, b {
+      font-family: 'MerchantWide', sans-serif;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    tr:hover {
+      background-color: #f0f8ff;
+    }
+
+    /* Nav Bar - Sticky, Responsive */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 2px solid #333;
+      padding: 0;
+      margin: -24px -24px 24px -24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .navbar-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      padding: 14px 0;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-family: 'MerchantWide', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-right: auto;
+    }
+
+    .nav-brand a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      align-items: center;
+    }
+
+    .nav a {
+      color: #2563eb;
+      text-decoration: none;
+      font-family: 'Times New Roman', Times, serif;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: #e8f0fe;
+      color: #1a5bb8;
+    }
+
+    .nav-links a:active {
+      background: #d2e3fc;
+    }
+
+    /* Mobile menu toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid #333;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-family: 'MerchantWide', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 16px; }
+      .navbar { margin: -16px -16px 20px -16px; }
+      .navbar-inner { padding: 0 16px; }
+      .nav { flex-direction: column; align-items: stretch; padding: 12px 0; }
+      .nav-brand { margin-right: 0; margin-bottom: 8px; }
+      .nav-links { flex-direction: column; display: none; }
+      .nav-links.show { display: flex; }
+      .nav-toggle { display: block; margin-top: 8px; }
+      .container { max-width: 100%; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 8px 10px; }
+      .flow-row { flex-direction: column; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 12px; }
+      .navbar { margin: -12px -12px 16px -12px; }
+      .navbar-inner { padding: 0 12px; }
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+
+    pre, .code-block {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    .note {
+      font-style: italic;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .flowchart-box {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 12px 0;
+    }
+
+    .flow-node {
+      padding: 10px 16px;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: 'MerchantWide', sans-serif;
+      font-weight: 700;
+    }
+
+    .flow-node.enc { border-color: #059669; background: #ecfdf5; }
+
+    .flow-node.attack { border-color: #dc2626; background: #fef2f2; }
+
+    .flow-arrow { font-size: 1.2rem; color: #333; }
+
+    .flow-arrow-down {
+      text-align: center;
+      padding: 4px 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .flow-layer {
+      padding: 12px 20px;
+      background: #fff;
+      border: 1px solid #333;
+      margin: 4px 0;
+      font-family: 'MerchantWide', sans-serif;
+      font-weight: 700;
+    }
+
+    .flow-steps p { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <nav class="nav">
+        <div class="nav-brand"><a href="#">UPI Docs</a></div>
+        <div class="nav-links" id="navLinks">
+          <a href="#flowcharts">Flowcharts</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#working-flow">Working Flow</a>
+          <a href="#encryption">Encryption</a>
+          <a href="#attacks">Attacks</a>
+          <a href="#prevention">Prevention</a>
+          <a href="#security-tools">Security Tools</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <header class="page-header">
+      <h1>UPI Educational Documentation</h1>
+      <p>Understanding UPI architecture, security, encryption, attacks, and prevention. For educational use only.</p>
+    </header>
+
+    <!-- Flowcharts -->
+    <section id="flowcharts" class="section">
+      <h1 style="margin-top: 0;">Flowcharts</h1>
+
+      <h2>1. UPI Pay Transaction Flow</h2>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node">SENDER (User A)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">PSP APP (PhonePe/GPay)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">NPCI SWITCH</div>
+        </div>
+        <div class="flow-steps">
+          <p><strong>Step 1:</strong> Enter VPA + Amount</p>
+          <p><strong>Step 2:</strong> Enter MPIN (local validation)</p>
+          <p><strong>Step 3:</strong> PSP validates & signs (TLS + API Auth)</p>
+          <p><strong>Step 4:</strong> NPCI routes to Issuer + Acquirer banks</p>
+          <p><strong>Step 5:</strong> Banks authorize → Settlement</p>
+          <p><strong>Step 6:</strong> UTR + Success returned to sender & receiver</p>
+        </div>
+      </div>
+
+      <h2>2. UPI System Architecture Layers</h2>
+      <div class="flowchart-box">
+        <div class="flow-layer">USER LAYER — PhonePe | Google Pay | Paytm | BHIM</div>
+        <div class="flow-arrow-down">↓ TLS/HTTPS</div>
+        <div class="flow-layer">PSP LAYER — Backend Servers (Yes Bank, ICICI, Axis)</div>
+        <div class="flow-arrow-down">↓ NPCI Protocol</div>
+        <div class="flow-layer">NPCI LAYER — UPI Switch (Routing, Settlement, Certs)</div>
+        <div class="flow-arrow-down">↓</div>
+        <div class="flow-layer">BANK LAYER — SBI | HDFC | ICICI | Axis (Issuer/Acquirer)</div>
+      </div>
+
+      <h2>3. Encryption in Payment Flow</h2>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node">APP (Plain: VPA, Amount)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node enc">TLS Encrypt (AES+RSA)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">NETWORK (Cipher)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node enc">TLS Decrypt</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">SERVER</div>
+        </div>
+        <p class="note">MPIN never leaves device. HMAC-SHA256 for request signing.</p>
+      </div>
+
+      <h2>4. Working Attacks — Flowcharts (Educational)</h2>
+      <p class="note">How attacks work conceptually. For awareness and prevention only.</p>
+
+      <h3>Phishing Attack Flow</h3>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node attack">Attacker</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Fake Link / SMS / Email</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">Victim Clicks</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Fake UPI / Bank Page</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">Victim Enters OTP/MPIN</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Attacker Captures</div>
+        </div>
+        <div class="flow-steps">
+          <p><strong>1.</strong> Attacker sends fake link/SMS/email</p>
+          <p><strong>2.</strong> Victim clicks and lands on fake page</p>
+          <p><strong>3.</strong> Victim enters OTP/MPIN thinking it's real</p>
+          <p><strong>4.</strong> Attacker captures credentials and misuses them</p>
+        </div>
+      </div>
+
+      <h3>Man-in-the-Middle (MitM) Attack Flow</h3>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node">User App</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Attacker (Proxy)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">PSP Server</div>
+        </div>
+        <div class="flow-steps">
+          <p><strong>1.</strong> User on compromised/public Wi‑Fi</p>
+          <p><strong>2.</strong> Attacker intercepts traffic between app and server</p>
+          <p><strong>3.</strong> If TLS broken: attacker reads/modifies data</p>
+          <p><strong>4.</strong> With valid TLS: attack fails (encryption protects)</p>
+        </div>
+      </div>
+
+      <h3>Collect Abuse Attack Flow</h3>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node attack">Attacker</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Sends Collect Request</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">Victim Sees Request</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">Victim Approves (without verifying)</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Money Sent to Attacker</div>
+        </div>
+        <div class="flow-steps">
+          <p><strong>1.</strong> Attacker initiates collect for amount X</p>
+          <p><strong>2.</strong> Victim gets notification in UPI app</p>
+          <p><strong>3.</strong> Victim approves without checking sender/amount</p>
+          <p><strong>4.</strong> Money debited from victim, credited to attacker</p>
+        </div>
+      </div>
+
+      <h3>Malware Attack Flow</h3>
+      <div class="flowchart-box">
+        <div class="flow-row">
+          <div class="flow-node">Fake/Sideloaded App</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Keylogger / Overlay</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node">Captures MPIN / Screen</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node attack">Sends to Attacker</div>
+        </div>
+        <div class="flow-steps">
+          <p><strong>1.</strong> Malware installed via fake app or sideloading</p>
+          <p><strong>2.</strong> Keylogger captures MPIN; overlay mimics UPI screen</p>
+          <p><strong>3.</strong> Stolen credentials sent to attacker's server</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPI Architecture -->
+    <section id="architecture" class="section">
+      <h1>UPI Architecture</h1>
+
+      <h2>1. Overview</h2>
+      <p>UPI is India's real-time payment system operated by <strong>NPCI</strong>. It enables instant fund transfer between bank accounts using a single identifier (VPA/UPI ID or mobile number).</p>
+
+      <h3>Key Entities</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>NPCI</td><td>Central switch; routes transactions between banks</td></tr>
+          <tr><td>PSP (Payment Service Provider)</td><td>Apps like PhonePe, Google Pay, Paytm</td></tr>
+          <tr><td>Issuer Bank</td><td>Bank of sender (debit)</td></tr>
+          <tr><td>Acquirer Bank</td><td>Bank of receiver (credit)</td></tr>
+          <tr><td>VPA</td><td>Virtual Payment Address (e.g., user@paytm)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>2. UPI Transaction Flow</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Initiation</td><td>User enters recipient VPA/number + amount in PSP app</td></tr>
+          <tr><td>2. Validation</td><td>PSP validates format, checks limits</td></tr>
+          <tr><td>3. Request</td><td>PSP sends collect/pay request to NPCI</td></tr>
+          <tr><td>4. Routing</td><td>NPCI routes to issuer and acquirer banks</td></tr>
+          <tr><td>5. Authorization</td><td>Banks verify accounts, balance, fraud checks</td></tr>
+          <tr><td>6. Settlement</td><td>NPCI debits issuer, credits acquirer</td></tr>
+          <tr><td>7. Confirmation</td><td>Both parties receive UTR (Unique Transaction Reference)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. UPI ID / VPA Format</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Example</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>9876543210@paytm</td><td>Phone-based</td></tr>
+          <tr><td>john.doe@ybl</td><td>Custom name (PhonePe)</td></tr>
+          <tr><td>merchant@okicici</td><td>Business (Google Pay)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. Non-Financial APIs (PSPs only)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>API</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ReqListAccount</td><td>List accounts for a mobile number</td></tr>
+          <tr><td>ReqValAdd</td><td>Validate VPA before adding beneficiary</td></tr>
+          <tr><td>ReqChkTxn</td><td>Check transaction status</td></tr>
+        </tbody>
+      </table>
+      <p class="note">These are restricted to registered PSPs; not publicly available.</p>
+    </section>
+
+    <!-- Working Flow -->
+    <section id="working-flow" class="section">
+      <h1>Complete Working Flow</h1>
+
+      <h2>Pay Flow (Sender Initiated)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Step</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Initiation</td><td>1</td><td>User opens PSP app, selects Pay</td></tr>
+          <tr><td>Initiation</td><td>2</td><td>Enters recipient VPA (e.g., user@paytm) or mobile number</td></tr>
+          <tr><td>Initiation</td><td>3</td><td>Enters amount, optional note</td></tr>
+          <tr><td>Validation</td><td>4</td><td>App validates VPA format (username@handle)</td></tr>
+          <tr><td>Validation</td><td>5</td><td>Checks daily/transaction limits</td></tr>
+          <tr><td>Authentication</td><td>6</td><td>User enters MPIN (4–6 digits)</td></tr>
+          <tr><td>Authentication</td><td>7</td><td>MPIN verified locally; generates signed token</td></tr>
+          <tr><td>Transmission</td><td>8</td><td>Request encrypted with TLS, sent to PSP backend</td></tr>
+          <tr><td>Routing</td><td>9</td><td>PSP forwards to NPCI; NPCI routes to issuer & acquirer banks</td></tr>
+          <tr><td>Authorization</td><td>10</td><td>Banks verify balance, fraud checks, block funds</td></tr>
+          <tr><td>Settlement</td><td>11</td><td>NPCI debits issuer, credits acquirer</td></tr>
+          <tr><td>Confirmation</td><td>12</td><td>UTR generated; both parties receive confirmation</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Collect Flow (Receiver Requested)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Receiver creates collect request (amount + expiry)</td></tr>
+          <tr><td>2</td><td>Sender receives request in app</td></tr>
+          <tr><td>3</td><td>Sender verifies & approves with MPIN</td></tr>
+          <tr><td>4</td><td>Same settlement flow as Pay (steps 8–12)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Security & Encryption -->
+    <section id="security" class="section">
+      <span id="encryption"></span>
+      <h1>Encryption & Security — Full Algorithm Details</h1>
+
+      <h2>1. AES (Advanced Encryption Standard)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Type</td><td>Symmetric block cipher</td></tr>
+          <tr><td>Key sizes</td><td>128, 192, 256 bits (AES-256 common in payments)</td></tr>
+          <tr><td>Block size</td><td>128 bits (16 bytes)</td></tr>
+          <tr><td>Modes</td><td>CBC, GCM (authenticated encryption)</td></tr>
+          <tr><td>Process</td><td>Plaintext → SubBytes → ShiftRows → MixColumns → AddRoundKey (repeat 10–14 rounds)</td></tr>
+          <tr><td>In UPI</td><td>TLS record encryption, session data, data at rest</td></tr>
+        </tbody>
+      </table>
+
+      <h2>2. RSA (Rivest–Shamir–Adleman)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Type</td><td>Asymmetric (public/private key pair)</td></tr>
+          <tr><td>Key sizes</td><td>2048–4096 bits for security</td></tr>
+          <tr><td>Use</td><td>Encrypt with public key, decrypt with private (or vice versa for signatures)</td></tr>
+          <tr><td>Process</td><td>Based on modular exponentiation; factoring large primes is computationally hard</td></tr>
+          <tr><td>In UPI</td><td>TLS handshake key exchange, X.509 certificates, API signing</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. SHA-256 (Secure Hash Algorithm)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Type</td><td>Cryptographic hash (one-way)</td></tr>
+          <tr><td>Output</td><td>256 bits (64 hex characters)</td></tr>
+          <tr><td>Properties</td><td>Deterministic, fixed length, avalanche effect, preimage resistant</td></tr>
+          <tr><td>Process</td><td>Message → Pad → Split blocks → 64 rounds (Ch, Maj, Σ0, Σ1) → Final hash</td></tr>
+          <tr><td>In UPI</td><td>Message integrity, password hashing, certificate fingerprints</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. HMAC (Hash-based Message Authentication Code)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Formula</td><td>HMAC(K, m) = H((K' ⊕ opad) || H((K' ⊕ ipad) || m))</td></tr>
+          <tr><td>Purpose</td><td>Verify message authenticity and integrity with shared secret</td></tr>
+          <tr><td>Common</td><td>HMAC-SHA256</td></tr>
+          <tr><td>In UPI</td><td>API request signing, tamper detection</td></tr>
+        </tbody>
+      </table>
+
+      <h2>5. TLS 1.2/1.3 Handshake (Simplified)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Client Hello (supported ciphers, TLS version)</td></tr>
+          <tr><td>2</td><td>Server Hello + Certificate (RSA/ECDHE)</td></tr>
+          <tr><td>3</td><td>Client verifies certificate chain</td></tr>
+          <tr><td>4</td><td>Key exchange (ECDHE/RSA), derive session keys</td></tr>
+          <tr><td>5</td><td>Encrypted application data (AES) over secure channel</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. Multi-Factor Authentication (MFA)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Example in UPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Something you know</td><td>MPIN (Mobile PIN)</td></tr>
+          <tr><td>Something you have</td><td>Device (SIM, app)</td></tr>
+          <tr><td>Something you are</td><td>Biometric (fingerprint, face)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Security Layers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>TLS/HTTPS</td><td>All app-to-server traffic encrypted</td></tr>
+          <tr><td>Tokenization</td><td>Sensitive data tokenized</td></tr>
+          <tr><td>OTP/MPIN</td><td>Second factor for transaction auth</td></tr>
+          <tr><td>NPCI Certificates</td><td>Mutual TLS between banks and NPCI</td></tr>
+          <tr><td>PCI-DSS</td><td>Card/payment data handling standards</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Possible Attacks -->
+    <section id="attacks" class="section">
+      <h1>Possible Attacks (Threat Model)</h1>
+      <p>Understanding attack vectors for awareness. <strong>For learning only—not for exploitation.</strong></p>
+
+      <h2>A. Social Engineering Attacks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Threat</th>
+            <th>Description</th>
+            <th>Defense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Phishing</td><td>Fake UPI links, fake customer care, fake QR codes</td><td>Verify URLs, use official apps only</td></tr>
+          <tr><td>Vishing</td><td>Calls pretending to be bank/PSP support asking for OTP</td><td>Never share OTP, MPIN, or collect approval</td></tr>
+          <tr><td>Fake UPI IDs</td><td>Similar-looking IDs (e.g., john@yb1 vs john@ybl) to trick senders</td><td>Double-check VPA before sending</td></tr>
+          <tr><td>SMiShing</td><td>SMS with fake links to fake UPI/bank pages</td><td>Never click links in unsolicited SMS</td></tr>
+          <tr><td>Impersonation</td><td>Fake merchant/relative requesting urgent payment</td><td>Call back on known number to verify</td></tr>
+        </tbody>
+      </table>
+
+      <h2>B. Technical Attacks (Conceptual)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Threat</th>
+            <th>Description</th>
+            <th>Defense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Man-in-the-Middle</td><td>Intercept traffic on malicious/public Wi-Fi</td><td>TLS, certificate pinning, avoid public Wi‑Fi</td></tr>
+          <tr><td>Malware</td><td>Keyloggers, screen capture to steal MPIN, overlay apps</td><td>Official app stores, keep OS updated</td></tr>
+          <tr><td>Session Hijacking</td><td>Stealing session tokens from compromised device</td><td>Short-lived tokens, secure storage</td></tr>
+          <tr><td>Replay Attacks</td><td>Reusing captured valid signed requests</td><td>Nonces, timestamps, transaction IDs (UTR)</td></tr>
+          <tr><td>Brute Force</td><td>Guessing MPIN (4–6 digits)</td><td>Rate limiting, lockout, biometric fallback</td></tr>
+          <tr><td>SSL Stripping</td><td>Downgrade HTTPS to HTTP on compromised network</td><td>HSTS, certificate pinning</td></tr>
+        </tbody>
+      </table>
+
+      <h2>C. Fraud Patterns</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Threat</th>
+            <th>Description</th>
+            <th>Defense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Collect Abuse</td><td>Collect requests to unsuspecting users</td><td>Verify amount and sender before approving</td></tr>
+          <tr><td>Wrong Recipient</td><td>Sending to similar VPA by mistake</td><td>Always verify UPI ID and name</td></tr>
+          <tr><td>SIM Swap</td><td>Attacker takes over phone number</td><td>Use UPI PIN/MPIN, link with email</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+
+    <!-- Prevention Methods -->
+    <section id="prevention" class="section">
+      <h1>Preventing Methods</h1>
+      <p>Defensive measures to protect against the above attacks.</p>
+
+      <h2>User-Level Prevention</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Method</th>
+            <th>Against</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Verify VPA, name, amount before every payment</td><td>Fake UPI IDs, wrong recipient</td></tr>
+          <tr><td>2</td><td>Use official apps from Play Store / App Store only</td><td>Malware, fake apps</td></tr>
+          <tr><td>3</td><td>Never share OTP, MPIN, or approve collect blindly</td><td>Phishing, vishing, collect abuse</td></tr>
+          <tr><td>4</td><td>Enable device lock, biometrics, 2FA</td><td>Device theft, unauthorized access</td></tr>
+          <tr><td>5</td><td>Monitor transaction history; set alerts</td><td>Unauthorized transactions</td></tr>
+          <tr><td>6</td><td>Avoid public Wi-Fi for payments</td><td>MitM, sniffing</td></tr>
+          <tr><td>7</td><td>Call back on known number to verify urgent requests</td><td>Impersonation, vishing</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Technical Prevention (PSP/Bank)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>TLS 1.2+</td><td>Encrypt all app-server traffic</td></tr>
+          <tr><td>Certificate Pinning</td><td>Prevent MitM by trusting specific certs</td></tr>
+          <tr><td>MPIN Rate Limiting</td><td>Lock after N failed attempts</td></tr>
+          <tr><td>UTR / Nonce</td><td>Each transaction unique; prevents replay</td></tr>
+          <tr><td>Secure Enclave</td><td>Store MPIN/keys in hardware (TEE)</td></tr>
+          <tr><td>Input Validation</td><td>Reject malformed VPA, amounts</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Developer Prevention</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Practice</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Never store MPIN/passwords in plain text</td><td>Data breach mitigation</td></tr>
+          <tr><td>Validate all inputs (UPI format, amounts)</td><td>Injection, overflow</td></tr>
+          <tr><td>Use TLS for all API traffic</td><td>Eavesdropping prevention</td></tr>
+          <tr><td>Follow PCI-DSS, OWASP guidelines</td><td>Industry compliance</td></tr>
+          <tr><td>Regular security audits, penetration tests</td><td>Find vulnerabilities early</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Security Tools -->
+    <section id="security-tools" class="section">
+      <h1>Security Analysis Tools (Defensive)</h1>
+      <p>Legitimate tools used for security testing and learning. <strong>Use only on systems you own or have permission to test.</strong></p>
+
+      <h2>Encryption & Hashing</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Purpose</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenSSL</td><td>SSL/TLS, certificates, hashing</td><td>Verify certs, test cipher suites</td></tr>
+          <tr><td>hashlib (Python)</td><td>SHA-256, HMAC</td><td>Hash verification, HMAC generation</td></tr>
+          <tr><td>cryptography (Python)</td><td>AES, RSA, Fernet</td><td>Encryption demos, secure storage</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Network & Transport</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Purpose</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>SSL Labs (ssllabs.com)</td><td>Test TLS config of servers</td><td>Check server TLS strength</td></tr>
+          <tr><td>Wireshark</td><td>Packet capture & analysis</td><td>Learn TLS handshake (decrypt with keys if you have them)</td></tr>
+          <tr><td>curl</td><td>HTTP/HTTPS requests</td><td>Test APIs, verify TLS</td></tr>
+        </tbody>
+      </table>
+
+      <h2>General Security Learning</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>OWASP</td><td>Web/mobile security guidelines</td></tr>
+          <tr><td>PCI-DSS</td><td>Payment card industry standards</td></tr>
+          <tr><td>CyberWolf Lab</td><td>Legal pentest labs (with permission)</td></tr>
+          <tr><td>Python lab/</td><td>encryption_demo.py, flowchart.py, simulated_payment_flow.py</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Do not use these tools to attack UPI, banks, or payment systems. Unauthorized access is illegal.</p>
+    </section>
+
+    <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #ddd; color: #666; font-size: 0.9rem;">
+      UPI Educational Documentation — For learning only. Unauthorized access to payment systems is illegal.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          document.getElementById('navLinks').classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
