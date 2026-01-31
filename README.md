@@ -2,28 +2,7 @@
 
 Educational resources for learning UPI (Unified Payments Interface) architecture, payment flow, security, and encryption. **Purely for learning—no attack or exploit code.**
 
----
 
-## Project Structure
-
-```
-UPI-working-banking/
-├── hacking/              # UPI ID lookup tool (format validation, phone extraction)
-│   ├── upi_lookup.py
-│   └── README.md
-├── lab/                  # Educational lab (flowcharts, encryption demo, simulations)
-│   ├── flowchart.py
-│   ├── encryption_demo.py
-│   ├── simulated_payment_flow.py
-│   └── README.md
-├── docs/                 # Documentation
-│   ├── UPI_ARCHITECTURE.md
-│   ├── SECURITY_AND_ENCRYPTION.md
-│   └── THREAT_MODEL.md
-└── README.md
-```
-
----
 
 ## Quick Start
 
@@ -79,3 +58,4 @@ python lab/simulated_payment_flow.py
 - ✅ Encryption concepts (SHA-256, HMAC, Fernet)
 - ✅ Threat model and security best practices
 - ❌ No real payment APIs, exploit code, or attack tools
+
